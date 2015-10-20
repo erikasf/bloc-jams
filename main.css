@@ -12,7 +12,16 @@ font-family: "Raleway",sans-serif;
 color: white;
 min-height: 100%;
 }
+<<<<<<< HEAD
 
+=======
+ .navbar .logo {
+     position: relative; /* positioning will be explained in a resource */
+     left: 2rem;
+.landing{
+  background-color: rgb(58,23,63);
+}
+>>>>>>> 3e633b6f5679dca3862d2890f9138fb50d1a1e17
 .navbar {
   position: relative;
      padding: 0.5rem;
@@ -20,6 +29,7 @@ min-height: 100%;
      z-indez: 1;
  }
  
+<<<<<<< HEAD
  .navbar .logo {
      position: relative; /* positioning will be explained in a resource */
      left: 2rem;
@@ -143,21 +153,11 @@ min-height: 100%;
      width: 33.3%;
      padding: 2rem;
      text-align: center;
+=======
+
+>>>>>>> 3e633b6f5679dca3862d2890f9138fb50d1a1e17
  }
  
- .point .point-title {
-     font-size: 1.25rem;
- }
-.fa .fa-music{
-  color: white;
-  height: 200px;
-}
- .ion-music-note,
- .ion-radio-waves,
- .ion-iphone {
-     color: rgb(233,50,117);
-     font-size: 5rem;
- }
 .selling li{
   display: inline-block;
   text-align: center;
