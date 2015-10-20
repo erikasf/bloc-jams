@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+.landing{
+  background-color: rgb(58,23,63);
+}
+.point {
+=======
 .hero-content {
      position: relative; /* positioning will be explained in a resource */
      min-height: 600px; /* hero content element must be _at least_ 600 pixels */
@@ -31,6 +37,7 @@
  }
  
  .point {
+>>>>>>> 3e633b6f5679dca3862d2890f9138fb50d1a1e17
    color: white;
      display: table-cell;
      position: relative;
@@ -47,6 +54,8 @@
    -webit-transition-delay: 0.2s;
    -moz-transition-delay: 0.2s;
    transition-delay: 0.2s;
+<<<<<<< HEAD
+=======
  }
  
  .point .point-title {
@@ -115,4 +124,5 @@
  .ion-iphone {
      color: rgb(233,50,117);
      font-size: 5rem;
+>>>>>>> 3e633b6f5679dca3862d2890f9138fb50d1a1e17
  }
