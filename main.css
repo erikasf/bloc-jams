@@ -12,17 +12,50 @@ font-family: "Raleway",sans-serif;
 color: white;
 min-height: 100%;
 }
-.landing{
-  background-color: rgb(58,23,63);
-}
+
 .navbar {
+  position: relative;
      padding: 0.5rem;
-     background-color: rgb(101,18,95);
+     background-color: rgba(101,18,95,0.5);
+     z-indez: 1;
  }
  
  .navbar .logo {
      position: relative; /* positioning will be explained in a resource */
      left: 2rem;
+     cursor: pointer; /*produces the finger-pointer icon when you hove*/
+ }
+ .navbar .links-container {
+     display: table;
+     position: absolute;
+     top: 0;
+     right: 0;
+     height: 100px;
+     color: white;
+     /* #3 */
+     text-decoration: none;
+ }
+ .links-container .navbar-link {
+     display: table-cell;
+     position: relative;
+     height: 100%;
+     padding-left: 1rem;
+     padding-right: 1rem;
+     /* #4 */
+     vertical-align: middle;
+     color: white;
+     font-size: 0.625rem;
+     letter-spacing: 0.05rem;
+     font-weight: 700;
+     text-transform: uppercase;
+     /* #3 */
+     text-decoration: none;
+     cursor: pointer;
+ }
+ 
+   /* #5 */
+ .links-container .navbar-link:hover {
+     color: rgb(233,50,117);
  }
  .hero-content {
      position: relative; /* positioning will be explained in a resource */
@@ -56,24 +89,7 @@ min-height: 100%;
      box-sizing: border-box; /* we'll explain this in a resource */
  }
  
- .point {
-   color: white;
-     display: table-cell;
-     position: relative;
-     width: 33.3%;
-     padding: 2rem;
-     text-align: center;
-   opacity: 0;
-   -webkit-transform: scaleX(0.9)translateY(3rem);
-   -moz-transform: scaleX(0.9) translateY(3rem)
-     transform: scaleX(0.9) translateY(3rem);
-   -webkit-transition: all 0.25s ease-in-out;
-   -moz-transition: all 0.25s ease-in-out;
-   transition: all 0.25s ease-in-out;
-   -webit-transition-delay: 0.2s;
-   -moz-transition-delay: 0.2s;
-   transition-delay: 0.2s;
- }
+ 
  
  .point .point-title {
      font-size: 1.25rem;
