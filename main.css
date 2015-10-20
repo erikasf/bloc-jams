@@ -12,6 +12,7 @@ font-family: "Raleway",sans-serif;
 color: white;
 min-height: 100%;
 }
+<<<<<<< HEAD
 .landing{
   background-color: rgb(58,23,63);
 }
@@ -23,6 +24,62 @@ min-height: 100%;
  .navbar .logo {
      position: relative; /* positioning will be explained in a resource */
      left: 2rem;
+=======
+<<<<<<< HEAD
+
+=======
+ .navbar .logo {
+     position: relative; /* positioning will be explained in a resource */
+     left: 2rem;
+.landing{
+  background-color: rgb(58,23,63);
+}
+>>>>>>> 3e633b6f5679dca3862d2890f9138fb50d1a1e17
+.navbar {
+  position: relative;
+     padding: 0.5rem;
+     background-color: rgba(101,18,95,0.5);
+     z-indez: 1;
+ }
+ 
+<<<<<<< HEAD
+ .navbar .logo {
+     position: relative; /* positioning will be explained in a resource */
+     left: 2rem;
+     cursor: pointer; /*produces the finger-pointer icon when you hove*/
+ }
+ .navbar .links-container {
+     display: table;
+     position: absolute;
+     top: 0;
+     right: 0;
+     height: 100px;
+     color: white;
+     /* #3 */
+     text-decoration: none;
+ }
+ .links-container .navbar-link {
+     display: table-cell;
+     position: relative;
+     height: 100%;
+     padding-left: 1rem;
+     padding-right: 1rem;
+     /* #4 */
+     vertical-align: middle;
+     color: white;
+     font-size: 0.625rem;
+     letter-spacing: 0.05rem;
+     font-weight: 700;
+     text-transform: uppercase;
+     /* #3 */
+     text-decoration: none;
+     cursor: pointer;
+ }
+ 
+   /* #5 */
+ .links-container .navbar-link:hover {
+     color: rgb(233,50,117);
+>>>>>>> da0d68341f9d78bbe25e708411df490e24bc9da1
  }
  .hero-content {
      position: relative; /* positioning will be explained in a resource */
@@ -56,6 +113,7 @@ min-height: 100%;
      box-sizing: border-box; /* we'll explain this in a resource */
  }
  
+<<<<<<< HEAD
  .point {
    color: white;
      display: table-cell;
@@ -74,6 +132,9 @@ min-height: 100%;
    -moz-transition-delay: 0.2s;
    transition-delay: 0.2s;
  }
+=======
+ 
+>>>>>>> da0d68341f9d78bbe25e708411df490e24bc9da1
  
  .point .point-title {
      font-size: 1.25rem;
@@ -127,6 +188,7 @@ min-height: 100%;
      width: 33.3%;
      padding: 2rem;
      text-align: center;
+<<<<<<< HEAD
  }
  
  .point .point-title {
@@ -142,6 +204,13 @@ min-height: 100%;
      color: rgb(233,50,117);
      font-size: 5rem;
  }
+=======
+=======
+
+>>>>>>> 3e633b6f5679dca3862d2890f9138fb50d1a1e17
+ }
+ 
+>>>>>>> da0d68341f9d78bbe25e708411df490e24bc9da1
 .selling li{
   display: inline-block;
   text-align: center;
