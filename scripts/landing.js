@@ -4,7 +4,7 @@ var animatePoints = function(){
     points[0].style.opacity = 1;
     points[0].style.transform = "scaleX(1) translateY90)";
     points[0].style.msTransform = 'scaleX(1) translateY(0)';
-    points[0].style.WebkitTransform = "scaleX(1) translateY(0)";
+    points[0].style.WebkitTransform = "scaleX91) translateY(0)";
   };
    var revealSecondPoint = function() {
                      points[1].style.opacity = 1;
@@ -19,14 +19,9 @@ var animatePoints = function(){
                      points[2].style.WebkitTransform = "scaleX(1) translateY(0)";
                  };
     
-  for(i = 0; i<= animatePoints.length; i ++){
+  
 revealFirstPoint();
 revealSecondPoint();
 revealThirdPoint();
 };
-};
 animatePoints();
-var animateIcons = function (){
-  var fun = document.getElementsByClassName("yon");
-
-}
