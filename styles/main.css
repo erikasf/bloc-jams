@@ -13,19 +13,6 @@ color: white;
 min-height: 100%;
 }
 <<<<<<< HEAD
-.landing{
-  background-color: rgb(58,23,63);
-}
-.navbar {
-     padding: 0.5rem;
-     background-color: rgb(101,18,95);
- }
- 
- .navbar .logo {
-     position: relative; /* positioning will be explained in a resource */
-     left: 2rem;
-=======
-<<<<<<< HEAD
 
 =======
  .navbar .logo {
@@ -79,7 +66,6 @@ min-height: 100%;
    /* #5 */
  .links-container .navbar-link:hover {
      color: rgb(233,50,117);
->>>>>>> da0d68341f9d78bbe25e708411df490e24bc9da1
  }
  .hero-content {
      position: relative; /* positioning will be explained in a resource */
@@ -113,28 +99,7 @@ min-height: 100%;
      box-sizing: border-box; /* we'll explain this in a resource */
  }
  
-<<<<<<< HEAD
- .point {
-   color: white;
-     display: table-cell;
-     position: relative;
-     width: 33.3%;
-     padding: 2rem;
-     text-align: center;
-   opacity: 0;
-   -webkit-transform: scaleX(0.9)translateY(3rem);
-   -moz-transform: scaleX(0.9) translateY(3rem)
-     transform: scaleX(0.9) translateY(3rem);
-   -webkit-transition: all 0.25s ease-in-out;
-   -moz-transition: all 0.25s ease-in-out;
-   transition: all 0.25s ease-in-out;
-   -webit-transition-delay: 0.2s;
-   -moz-transition-delay: 0.2s;
-   transition-delay: 0.2s;
- }
-=======
  
->>>>>>> da0d68341f9d78bbe25e708411df490e24bc9da1
  
  .point .point-title {
      font-size: 1.25rem;
@@ -188,29 +153,11 @@ min-height: 100%;
      width: 33.3%;
      padding: 2rem;
      text-align: center;
-<<<<<<< HEAD
- }
- 
- .point .point-title {
-     font-size: 1.25rem;
- }
-.fa .fa-music{
-  color: white;
-  height: 200px;
-}
- .ion-music-note,
- .ion-radio-waves,
- .ion-iphone {
-     color: rgb(233,50,117);
-     font-size: 5rem;
- }
-=======
 =======
 
 >>>>>>> 3e633b6f5679dca3862d2890f9138fb50d1a1e17
  }
  
->>>>>>> da0d68341f9d78bbe25e708411df490e24bc9da1
 .selling li{
   display: inline-block;
   text-align: center;
