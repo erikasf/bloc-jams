@@ -4,7 +4,7 @@ var albumPicasso = {
 	label: 'Cubism',
 	year: '1881',
 	albumArtUrl:'assets/images/album_covers/01.png',
-	songs: [
+	song: [
 		{name: 'Blue',        length:'4:26'},
 		{name: 'Green',       length:'2:14'},
 		{name: 'Red',         length:'2:14'},
@@ -19,7 +19,7 @@ var albumMarconi = {
      label: 'EM',
      year: '1909',
      albumArtUrl: 'assets/images/album_covers/20.png',
-     songs: [
+     song: [
          { name: 'Hello, Operator?',    length: '1:01' },
          { name: 'Ring, ring, ring',    length: '5:01' },
          { name: 'Fits in your pocket', length: '3:21'},
@@ -33,7 +33,7 @@ var albumMarconi = {
      label: 'Sony',
      year: '2009',
      albumArtUrl: 'assets/images/album_covers/airborne.png',
-     songs: [
+     song: [
          { name: 'Wishing Well ',                     length: '3:57' },
          { name: 'Papillion',                         length: '3:17' },
          { name: 'Gasoline',                          length: '3:20'},
@@ -49,9 +49,9 @@ var createSongRow = function(songNumber, songName, songLength){
 	var template = 
 	'<tr class = "album-view-song-item">'
 	
-			+ ' <td class = "song-tem-number">  '  + songNumber + '</td>'
-			+ ' <td class = "song-tem-title">   '  + songTitle  + '</td>'
-			+ ' <td class = "song-tem-duration">'  + songLength + '</td>'
+		+'  <td class="song-item-number" data-song-number="' + songNumber + '">' + songNumber + '</td>'
+			+ ' <td class = "song-item-title">   '  + songTitle  + '</td>'
+			+ ' <td class = "song-item-duration">'  + songLength + '</td>'
 	'</tr>'
 	;
 	return template;
@@ -64,7 +64,7 @@ var createSongRow = function(songNumber, songName, songLength){
 // 	//bind that to set Current album selection
 	
 // 	})
-}
+
 var setCurrentAlbum = function(album){
 	/*#1we select all of the HTML elements required to display on the album page:
 	 title, artist, release info,image, and song list. We want to populate 
@@ -115,3 +115,24 @@ albumImage.addEventListener("click", function(e){
 		index = 0;
 	}
 });
+var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
+var songRows = document.getElementsByClassName('album-view-song-item');
+var playButtonTemplate = "<a class="album-song-button"><span class = "ion-play"></span></a>"
+
+window.onload = function(){
+	setCurrentAlbum(albumPicasso);
+	songListContainer.addEventListener('mouseover',function(event){
+		console.log(event.target);
+		//only target song rows during event delegation
+		if(event.target.parentElement.className === 'album-view-song-item'){
+			event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+		}
+	});
+	for(i=0; i<songRows.length; i++){
+		songRows[i].addEventLisener('mouseleave',function(event){
+			 this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+         });
+	
+	}
+	};
+	
