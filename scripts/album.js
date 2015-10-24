@@ -56,13 +56,21 @@ var createSongRow = function(songNumber, songName, songLength){
 	;
 	return template;
 };
+// var clickThrough = function(albumArtUrl){
+// 	//select the class that holds the album art
+// 	var pickMe = document.getElementsByClassName('album-cover-art');
+// 	'album-cover-art'.addEventListener('click', funcgtion(e){
 
+// 	//bind that to set Current album selection
+	
+// 	})
+}
 var setCurrentAlbum = function(album){
 	/*#1we select all of the HTML elements required to display on the album page:
 	 title, artist, release info,image, and song list. We want to populate 
 	 these elements with information. To do so, we assign the corresponding values 
 	of the album objects' properties to the HTML elements.*/
-	var albumTitle       =  document.getelementsByClassName('album-view-title')[0];
+	var albumTitle       =  document.getElementsByClassName('album-view-title')[0];
 	var albumArtist      =  document.getElementsByClassName('album-view-artist')[0];
 	var albumReleaseInfo =  document.getelementsByClassName('album-release-info')[0];
 	var albumSongList    =  document.getElementsByClassName('album-view-song-list')[0];
@@ -77,7 +85,7 @@ var setCurrentAlbum = function(album){
      When we populated our collection view with albums, we initially set the value 
      of the parent container's innerHTML to an empty string. This ensured that we 
      were working with a clean slate. */
-	albumTitle.firstChild.nodeValue = album.name;
+	albumTitle.firstChild.nodeValue = album.title;
 	albumArtist.firstChild.nodeValue = album.artist;
 	albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label
 
@@ -98,7 +106,7 @@ var setCurrentAlbum = function(album){
 
 };
 
-var ablume = [' albumPicasso ', 'albumMarconi','albumAirborne']
+var album= [' albumPicasso ', 'albumMarconi','albumAirborne']
 var index= 1;
 albumImage.addEventListener("click", function(e){
 	setCurrentAlbum(album[index]);
