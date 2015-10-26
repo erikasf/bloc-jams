@@ -1,26 +1,34 @@
-var collectionItemTemplate = 
-"<div class='collection-album-container column fourth'>"
-            +  ' <img src="assets/images/album_covers/01.png"/>'
-            +  '<div class="collection-album-info caption">'
-            +  ' <p>'
-            +  ' <a class="album-name" href="#">The Colors</a>'
-            +  '<br/>'
-            +  '<a href="#">Pablo Picasso</a>'
-            +  ' <br/>'
-            +  ' X songs'
-            +  '  <br/>'
-            +  '</p>'
-            +  '</div>'
-            +  '</div>'
-            ;
+var collectionItemTemplate = function(){
+      var template = 
+                  "<div class='collection-album-container column fourth'>"
+                  +  ' <img src="assets/images/album_covers/01.png"/>'
+                  +  '<div class="collection-album-info caption">'
+                  +  ' <p>'
+                  +  ' <a class="album-name" href="#">The Colors</a>'
+                  +  '<br/>'
+                  +  '<a href="#">Pablo Picasso</a>'
+                  +  ' <br/>'
+                  +  ' X songs'
+                  +  '  <br/>'
+                  +  '</p>'
+                  +  '</div>'
+                  +  '</div>'
+                  ;
 
- 
- 	window.onload = function(){
-      var collectionContainer = document.getElementsByClassName('album_covers')[0];
-      this.innerHTML = '';
-      for (var i = 0; i <12; i++){
-            this.innerHTML += collectionItemTemplate;
-      }
+      return $(template);
 };
-
+ 	window.onload = function(){
+//       var collectionContainer = document.getElementsByClassName('album_covers')[0];
+//       this.innerHTML = '';
+//       for (var i = 0; i <12; i++){
+//             this.innerHTML += collectionItemTemplate;
+//       }sssassaaaaaa
+// };
+ var $collectionContainer = $('.album-covers');
+    $collectionContainer.empty();
+    for (var i = 0; i < 12; i++) {
+        var $newThumbnail = buildCollectionItemTemplate();
+        $collectionContainer.append($newThumbnail);
+    }
+});
  
