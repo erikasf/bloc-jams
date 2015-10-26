@@ -12,7 +12,7 @@ var createSongRow = function(songNumber, songName, songLength) {
       ;
       var onHover = function(event) {
         var songNumberCell = $(this).find('.song-item-number');
-        var songNumber = songNumberCell.attr('data-song-number');
+        var songNumber = parseInt($(this).attr('data-song-number'));
 
         if (songNumber !== currentlyPlayingSong) {
             songNumberCell.html(playButtonTemplate);
@@ -21,7 +21,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
     var offHover = function(event) {
         var songNumberCell = $(this).find('.song-item-number');
-        var songNumber = songNumberCell.attr('data-song-number');
+        var songNumber = parseInt($(this).attr('data-song-number'));
 
         if (songNumber !== currentlyPlayingSong) {
             songNumberCell.html(songNumber);
@@ -39,12 +39,22 @@ var createSongRow = function(songNumber, songName, songLength) {
         var songNumber = parseInt($(this).attr('data-song-number'));
 
 
-    //     if (currentlyPlayingSongNumber !== null) {
+    //   if (currentlyPlayingSongNumber !== null) {
     //         var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
     //         currentlyPlayingCell.html(currentlyPlayingSongNumber);
     //     }
-    //     if (currentlyPlayingSongNumber !== songNumber) {
-    //         $(this).html(pauseButtonTemplate);
+        if (currentlyPlayingSongNumber !== songNumber) {
+            $(this).html(pauseButtonTemplate);
+            currentlyPlayingSongNumber = songNumber;
+             currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+             updatePlayerBarSong();
+         } else if (currentlyPlayingSongNumber === songNumber) {
+             $(this).html(playButtonTemplate);
+             $('.main-controls .play-pause').html(playerBarPlayButton);
+             currentlyPlayingSongNumber = null;
+             currentSongFromAlbum = null;
+         }
+
     //         setSong(songNumber);
     //         currentSoundFile.play();
     //         currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
@@ -153,6 +163,9 @@ var setCurrentAlbum = function(album) {
         var $newRow= createSongRow(i + 1, album.songs[i].name, album.songs[i].length);
         $albumSongList.append($newRow);
     }
+};
+var trackIndex = function(album, song){
+    return album.songs.indexOf(song);
 };
 
 var setCurrentTimeInPlayerBar = function(currentTime) {
@@ -342,60 +355,14 @@ var $nextButton = $('.main-controls .next');
 var $playPauseButton = $('.main-controls .play-pause');
 
 $(document).ready(function() {
-    setCurrentAlbum(albumPicasso);
+    (albumPicasso);
     setupSeekBars();
     $previousButton.click(previousSong);
     $nextButton.click(nextSong);
     $playPauseButton.click(togglePlayFromPlayerbar);
 });
 
-// var albumPicasso = {
-// 	name: 'The Colors',
-// 	artists: 'Pablo Picasso',
-// 	label: 'Cubism',
-// 	year: '1881',
-// 	albumArtUrl:'assets/images/album_covers/01.png',
-// 	songs: [
-// 		{name: 'Blue',        length:'4:26'},
-// 		{name: 'Green',       length:'2:14'},
-// 		{name: 'Red',         length:'2:14'},
-// 		{name: 'Pink',        length:'2:14'},
-// 		{name: 'Yellow',      length:'5:14'},
-// 		{name: 'Chartreusse', length:'3:14'}
-// 		]
-// };
-// var albumMarconi = {
-//      name: 'The Telephone',
-//      artist: 'Guglielmo Marconi',
-//      label: 'EM',
-//      year: '1909',
-//      albumArtUrl: 'assets/images/album_covers/20.png',
-//      songs: [
-//          { name: 'Hello, Operator?',    length: '1:01' },
-//          { name: 'Ring, ring, ring',    length: '5:01' },
-//          { name: 'Fits in your pocket', length: '3:21'},
-//          { name: 'Can you hear me now?',length: '3:14' },
-//          { name: 'Wrong phone number',  length: '2:15'}
-//      ]
-//  };
-//  var albumAirborne = {
-//      name: 'Deluxe Edition',
-//      artist: 'The Airborne Toxic Event',
-//      label: 'Sony',
-//      year: '2009',
-//      albumArtUrl: 'assets/images/album_covers/airborne.png',
-//      songs: [
-//          { name: 'Wishing Well ',                     length: '3:57' },
-//          { name: 'Papillion',                         length: '3:17' },
-//          { name: 'Gasoline',                          length: '3:20'},
-//          { name: 'Happiness Is Overrated',            length: '3:11' },
-//          { name: 'Does This Mean You are Moving On?', length: '2:13'},
-//          { name: 'This is Nowhere',                   length: '2:49'},
-//          { name: 'Something Around Midnight',         length: '3:04'},
-//          { name: 'Something New',                     length: '2:13'},
-//          { name: 'Missy',                             length: '3:39'}
-//      ]
-//  };
+
 //  var createSongRow = function(songNumber, songName, songLength) {
 //      var template =
 //         '<tr class="album-view-song-item">'
@@ -417,7 +384,7 @@ $(document).ready(function() {
 	
 // // 	})
 
-// var setCurrentAlbum = function(album) {
+// var  = function(album) {
 //      // #1
 //      var albumTitle = document.getElementsByClassName('album-view-title')[0];
 //      var albumArtist = document.getElementsByClassName('album-view-artist')[0];
@@ -472,9 +439,9 @@ $(document).ready(function() {
 //         default:
 //             return;
 //     };
-//     var clickHandler = function(targetElement) {
+ //   var clickHandler = function(targetElement) {
 //         var songItem = getSongItem(targetElement); 
-//         if (currentlyPlayingSong === null) {
+//        if (currentlyPlayingSong === null) {
 //          songItem.innerHTML = pauseButtonTemplate;
 //          currentlyPlayingSong = songItem.getAttribute('data-song-number');
 //      } else if (currentlyPlayingSong === songItem.getAttribute('data-song-number')) {
@@ -493,17 +460,18 @@ $(document).ready(function() {
 //  var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
 //  var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
 //   // Store state of playing songs
-//  var currentlyPlayingSong = null;
+ var currentlyPlayingSong = null;
+ var currentAlbum = null;
 
 
 //  window.onload = function() {
-//      setCurrentAlbum(albumPicasso);
+//      (albumPicasso);
 //  };
 // var album= [' albumPicasso ', 'albumMarconi','albumAirborne']
 // var index= 1;
 // var albumImage = document.getElementsByClassName('album-cover-art')[0];
 // albumImage.addEventListener("click", function(e){
-// 	setCurrentAlbum(album[index]);
+// 	(album[index]);
 // 	index++;
 // 	if (index == album.length){
 // 		index = 0;
@@ -516,7 +484,7 @@ $(document).ready(function() {
 // var songListContainer = document.getElementsByClassName('album-view-song-list')[0];
 
 //  window.onload = function() {
-//      setCurrentAlbum(albumPicasso);
+//      (albumPicasso);
 
 //      songListContainer.addEventListener('mouseover', function(event) {
 //         if(event.target.parentElement.className === 'album-view-song-item'{
