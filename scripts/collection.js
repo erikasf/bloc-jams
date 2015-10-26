@@ -17,7 +17,7 @@ var collectionItemTemplate = function(){
 
       return $(template);
 };
- 	window.onload = function(){
+ 	window.load = function(){
 //       var collectionContainer = document.getElementsByClassName('album_covers')[0];
 //       this.innerHTML = '';
 //       for (var i = 0; i <12; i++){
@@ -29,6 +29,6 @@ var collectionItemTemplate = function(){
     for (var i = 0; i < 12; i++) {
         var $newThumbnail = buildCollectionItemTemplate();
         $collectionContainer.append($newThumbnail);
-    }
+    };
 });
  
