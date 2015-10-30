@@ -9,9 +9,9 @@ var albumPicasso = {
          { name: 'Green', length: '3:14', audioUrl: '/assets/music/green' },
          { name: 'Red', length: '5:01', audioUrl: '/assets/music/red' },
          { name: 'Pink', length: '3:21', audioUrl: '/assets/music/pink' },
-         { name: 'Magenta', length: '2:15', audioUrl: '/assets/music/magenta' } 
-		]
-};
+         { name: 'Magenta', length: '2:15', audioUrl: '/assets/music/magenta' }  
+     ]
+ };
 var albumMarconi = {
      name: 'The Telephone',
      artist: 'Guglielmo Marconi',
