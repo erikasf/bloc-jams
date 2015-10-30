@@ -1,6 +1,4 @@
-var mySound = new buzz.sound("assets/musiv/bloc_jams_music", {
-    formats: [ "ogg", "mp3", "aac", "wav" ]
-});
+
 
 var getSongNumberCell = function(number) {
     return $('.song-item-number[data-song-number="' + number + '"]');   
@@ -15,7 +13,8 @@ var createSongRow = function(songNumber, songName, songLength) {
       + '</tr>'
       ;
 
-    var $row = $(template);
+    return $(template);
+};
     
     var clickHandler = function() {
         var songNumber = parseInt($(this).attr('data-song-number'));
@@ -37,7 +36,7 @@ var createSongRow = function(songNumber, songName, songLength) {
 
             $(this).html(pauseButtonTemplate);
             updatePlayerBarSong();
-}
+
         } else if (currentlyPlayingSongNumber === songNumber) {
             if (currentSoundFile.isPaused()) {
                 $(this).html(pauseButtonTemplate);
@@ -104,7 +103,7 @@ var setVolume = function(volume) {
 };
 
 var setCurrentAlbum = function(album) {
-    currentAlbum = album;
+    // currentAlbum = album;
 
     var $albumTitle = $('.album-view-title');
     var $albumArtist = $('.album-view-artist');
