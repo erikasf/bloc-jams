@@ -35,4 +35,9 @@
      }
      
  });
+   //ajax('url',{
+   //success: function(response){
+   //$('.ticket').html(response).slideDown}});
+   //$.get('sdfds',function(response){
+   //$('.ticket').html(response).slideDown();})
  

@@ -13,6 +13,11 @@ var setSong = function(songNumber) {
 
     setVolume(currentVolume);
 };
+var seek = function(time) {
+     if (currentSoundFile) {
+         currentSoundFile.setTime(time);
+     }
+ }
 
 var setVolume = function(volume) {
      if (currentSoundFile) {
@@ -119,7 +124,63 @@ var setCurrentAlbum = function(album) {
           $albumSongList.append($newRow);
      }
  };
+var updateSeekPercentage = function($seekBar, seekBarFillRatio) {
+    var offsetXPercent = seekBarFillRatio * 100;
+    // #1
+    offsetXPercent = Math.max(0, offsetXPercent);
+    offsetXPercent = Math.min(100, offsetXPercent);
+ 
+    // #2
+    var percentageString = offsetXPercent + '%';
+    $seekBar.find('.fill').width(percentageString);
+    $seekBar.find('.thumb').css({left: percentageString});
+ };
+ var setupSeekBars = function() {
+     var $seekBars = $('.player-bar .seek-bar');
+ 
+     $seekBars.click(function(event) {
+         // #3
+         var offsetX = event.pageX - $(this).offset().left;
+         var barWidth = $(this).width();
+         // #4
+         var seekBarFillRatio = offsetX / barWidth;
+ 
+         // #5
+         updateSeekPercentage($(this), seekBarFillRatio);
+     });
+     $seekBars.find('.thumb').mousedown(function(event) {
+         // #7
+         var $seekBar = $(this).parent();
+ 
+         // #8
+         $(document).bind('mousemove.thumb', function(event){
+             var offsetX = event.pageX - $seekBar.offset().left;
+             var barWidth = $seekBar.width();
+             var seekBarFillRatio = offsetX / barWidth;
+ 
+             updateSeekPercentage($seekBar, seekBarFillRatio);
+         });
+ 
+         // #9
+         $(document).bind('mouseup.thumb', function() {
+             $(document).unbind('mousemove.thumb');
+             $(document).unbind('mouseup.thumb');
+         });
+     });
+var updateSeekBarWhileSongPlays = function() {
+     if (currentSoundFile) {
+         // #10
+         currentSoundFile.bind('timeupdate', function(event) {
+             // #11
+             var seekBarFillRatio = this.getTime() / this.getDuration();
+             var $seekBar = $('.seek-control .seek-bar');
+ 
+             updateSeekPercentage($seekBar, seekBarFillRatio);
+         });
+     }
+ };
 
+ };
  var trackIndex = function(album, song) {
      return album.songs.indexOf(song);
  };
@@ -224,6 +285,7 @@ var $nextButton = $('.main-controls .next');
 
 $(document).ready(function() {
      setCurrentAlbum(albumAirborne);
+     setupSeekBars();
      $previousButton.click(previousSong);
      $nextButton.click(nextSong);
      for (i = 0; i < songRows.length; i++) {
