@@ -1,7 +1,6 @@
 
  var buildCollectionItemTemplate = function() {
- 
-     var template =
+ var template =
      '<div class="collection-album-container column fourth">'
    + '  <img src="assets/images/album_covers/01.png"/>'
    + '  <div class="collection-album-info caption">'
